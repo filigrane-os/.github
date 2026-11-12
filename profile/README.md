@@ -29,7 +29,7 @@ The memory and the battery saved by the system are memory and battery for what y
 A *filigrane* is a watermark: visible when you look for it, invisible when you read the page. That is the brief for an operating system.
 
 - **It gets out of the way.** A thin veil on top of the machine: translucent layers that stack without hiding anything.
-- **Light by construction.** Native Void packages, runit instead of systemd, no resident Electron, JVM or Node. Home-made tools are small Rust binaries. A `budget` tool measures what everything costs, and anything heavy is flagged before it is installed.
+- **Light by construction.** Native Void packages, runit instead of systemd, no resident Electron, JVM or Node. Home-made tools are small Rust binaries ([why Rust](#why-rust)). A `budget` tool measures what everything costs, and anything heavy is flagged before it is installed.
 - **Modern where it counts.** A scrollable-tiling Wayland compositor, a thin bar you can put on any edge, fine-stroke icons, Jost typography, dark and light modes with an accent, and an interface that follows one written guideline instead of whatever each toolkit does.
 - **Agentic.** An AI agent is a first-class citizen, not an add-on (see below).
 - **Declarative.** Packages, services, settings and dotfiles live in git. One idempotent `bootstrap.sh` applies them. Personal accounts and tastes sit in their own layer and never fork the distribution.
@@ -78,6 +78,17 @@ The agent is part of the system, not a window bolted on top.
 - **It sees what you were looking at.** `Mod+Y` notes the active application and selection: "rename these files" works.
 - **It is reversible.** File changes go through `fili-tx`, one transaction per request, undone with `fili-tx undo`.
 - **It is your choice.** Claude Code, Codex, opencode, or local models through Ollama (nothing leaves the machine). No agent at all is a valid setting.
+
+## Why Rust
+
+Most of what Filigrane writes itself is Rust: the apps (Casier, Facteur, Aéroport), the daemons (terminal sessions, mail watcher, chat sessions, automount) and the tools behind the bar (statistics, global menu, `fili-tx`, `budget`). The shell's look is QML (Quickshell), driven by those small Rust programs. The reasons are the ones the project is about:
+
+- **No runtime to carry.** No garbage collector, no interpreter, no JVM or Node: a background daemon costs a few megabytes, and idle really is idle.
+- **Fast to start, fast to paint.** Native code, and Qt Quick rendered from Rust, so a window opens at once and only paints what changed.
+- **Safe by construction.** Memory safety and strict typing where it matters most: parsing mail and archives, owning ptys, moving your files.
+- **Robust daemons.** Ownership and fearless concurrency suit long-running processes that must survive a crashed window.
+- **One binary.** An app is a single executable plus its data: easy to package for xbps, easy to replay from git.
+- **One toolchain.** `cargo` builds, tests and formats everything the same way, which keeps a small project maintainable.
 
 ## Principles
 
