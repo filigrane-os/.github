@@ -60,6 +60,12 @@ Small, fast, native (Rust and Qt Quick), each with its own icon, an *About* card
   <img src="img/01-list-dark.png" alt="Casier, dark theme" width="400">
   <img src="img/09-list-light.png" alt="Casier, light theme" width="400">
 </p>
+<p align="center"><sub>Casier in its dark and light themes.</sub></p>
+
+<p align="center">
+  <img src="img/aeroport.png" alt="Aéroport, the Filigrane terminal" width="560">
+</p>
+<p align="center"><sub>Aéroport.</sub></p>
 
 Each app carries a display name that is the one you see everywhere in the OS (Casier, Facteur, Aéroport); the program name (`fili-file`…) stays in the code and the commands.
 
