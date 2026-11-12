@@ -8,7 +8,7 @@
 <p align="center"><em>The OS, discreetly.</em></p>
 
 <p align="center">
-  <img src="img/desktop.png" alt="The Filigrane desktop over a misty forest, with the Rob chat drawer open on the right" width="820">
+  <img src="img/desktop.png" alt="The Filigrane desktop: the bar, Casier, Aéroport and the Rob chat drawer over a misty forest, with the Quai at the bottom" width="820">
 </p>
 
 **Filigrane** is a light, modern Linux desktop built on [Void Linux](https://voidlinux.org) and the [niri](https://github.com/YaLTeR/niri) compositor, with its own shell and a handful of small native apps. The whole machine is described by one git repository, so any x86-64 PC, virtual machine or Intel Mac can replay it.
